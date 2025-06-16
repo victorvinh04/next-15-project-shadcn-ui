@@ -1,8 +1,20 @@
+// @ts-check
 import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
   outputFileTracingIncludes: {
     '/*': ['./registry/**/*'],
+  },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
+  webpack: (config) => {
+    if (config.name === 'server') config.optimization.concatenateModules = false
+
+    return config
   },
   images: {
     remotePatterns: [

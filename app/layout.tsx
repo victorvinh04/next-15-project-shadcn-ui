@@ -1,13 +1,20 @@
+import {
+  QueryClient,
+  QueryClientProvider,
+  isServer,
+} from '@tanstack/react-query'
 import '@/styles/globals.css'
 import type { Metadata } from 'next'
 // @/lib
 import { META_THEME_COLORS, siteConfig } from '@/lib/config'
 import { fontVariables } from '@/lib/fonts'
 import { cn } from '@/lib/utils'
+// @/context
+import { ActiveThemeProvider } from '@/context/active-theme'
+import { QueryClientProviders } from '@/context/query-client-providers'
 import { ThemeProvider } from '@/context/theme-provider'
 import { LayoutProvider } from '@/hooks/use-layout'
 import { Toaster } from '@/components/ui/sonner'
-import { ActiveThemeProvider } from '@/components/layout/active-theme'
 
 export const metadata: Metadata = {
   title: {
@@ -61,7 +68,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang='en' suppressHydrationWarning>
+    <html lang='en' suppressHydrationWarning={true}>
       <head>
         <script
           dangerouslySetInnerHTML={{
@@ -87,19 +94,21 @@ export default function RootLayout({
         data-new-gr-c-s-check-loaded='14.1107.0'
         data-gr-ext-installed=''
       >
-        <ThemeProvider
-          attribute='class'
-          defaultTheme='dark'
-          enableSystem
-          disableTransitionOnChange
-        >
-          <LayoutProvider>
-            <ActiveThemeProvider>
-              {children}
-              <Toaster position='top-center' />
-            </ActiveThemeProvider>
-          </LayoutProvider>
-        </ThemeProvider>
+        <QueryClientProviders>
+          <ThemeProvider
+            attribute='class'
+            defaultTheme='dark'
+            enableSystem
+            disableTransitionOnChange
+          >
+            <LayoutProvider>
+              <ActiveThemeProvider>
+                {children}
+                <Toaster position='top-center' />
+              </ActiveThemeProvider>
+            </LayoutProvider>
+          </ThemeProvider>
+        </QueryClientProviders>
       </body>
     </html>
   )

@@ -1,22 +1,17 @@
+import { PageNav } from '@/app/(app)/dashboard/components/page-nav'
 import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { CardsDemo } from '@/components/ui/cards'
-import { ThemeSwitch } from '@/components/layout/theme-switch'
-import { Main } from '@/components/layout/main'
-// import { Announcement } from '@/components/announcement';
-// import { CardsDemo } from '@/components/cards';
-// import { ExamplesNav } from '@/components/examples-nav';
-
 import {
   PageActions,
   PageHeader,
   PageHeaderDescription,
   PageHeaderHeading,
 } from '@/components/layout/page-header'
-import { PageNav } from '@/components/layout/page-nav'
-import { ThemeSelector } from '@/components/layout/theme-selector'
+import { ThemeSelector } from '@/components/themes/theme-selector'
+import { ThemeSwitch } from '@/components/themes/theme-switch'
 
 const title = 'Build your Component Library'
 const description =
@@ -57,7 +52,7 @@ export default function IndexPage() {
           <div className='3xl:fixed:container flex h-(--header-height) items-center gap-2 **:data-[slot=separator]:!h-4'>
             <Link href='/' className='flex items-center gap-2'>
               <Image
-                src='/logo.svg'
+                src='/assets/images/logo/logo.svg'
                 alt='Logo'
                 width={32}
                 height={32}

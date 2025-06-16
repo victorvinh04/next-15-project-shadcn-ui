@@ -2,7 +2,7 @@ import * as React from 'react'
 import { Slot } from '@radix-ui/react-slot'
 import { VisuallyHidden } from '@radix-ui/react-visually-hidden'
 import { VariantProps, cva } from 'class-variance-authority'
-import { PanelLeft } from 'lucide-react'
+import { ArrowLeftToLine, PanelLeft } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { useIsMobile } from '@/hooks/use-mobile'
 import { Button } from '@/components/ui/button'
@@ -179,26 +179,52 @@ const Sidebar = React.forwardRef<
     ref
   ) => {
     const { isMobile, state, openMobile, setOpenMobile } = useSidebar()
-    const [widthSidebar, setWidthSidebar] = React.useState<number>(
-      window.innerWidth
-    )
-
+    
+    // Use null as initial state to handle SSR
+    const [windowWidth, setWindowWidth] = React.useState<number | null>(null)
+    
+    // Initialize window width on client-side only
     React.useEffect(() => {
-      const handleResize = () => {
-        // Force re-render on window resize
-        // This is a workaround to ensure the sidebar updates its variant based on window width
-        setTimeout(() => {
-          setWidthSidebar(window.innerWidth)
-        }, 0)
-      }
-
+      setWindowWidth(window.innerWidth)
+      
+      // Debounced resize handler to improve performance
+      const handleResize = debounce(() => {
+        setWindowWidth(window.innerWidth)
+      }, 100)
+      
       window.addEventListener('resize', handleResize)
       return () => {
         window.removeEventListener('resize', handleResize)
+        handleResize.cancel()
       }
     }, [])
+    
+    // Simple debounce implementation
+    function debounce<T extends (...args: any[]) => any>(
+      func: T,
+      wait: number
+    ) {
+      let timeout: ReturnType<typeof setTimeout> | null = null
+      
+      const debounced = (...args: Parameters<T>) => {
+        if (timeout !== null) {
+          clearTimeout(timeout)
+        }
+        timeout = setTimeout(() => func(...args), wait)
+      }
+      
+      debounced.cancel = () => {
+        if (timeout !== null) {
+          clearTimeout(timeout)
+          timeout = null
+        }
+      }
+      
+      return debounced
+    }
 
-    if (widthSidebar <= 1024) {
+    // Only render mobile view if we have a window width and it's <= 1024px
+    if (windowWidth !== null && windowWidth <= 1024) {
       return (
         <div
           ref={ref}
@@ -321,7 +347,7 @@ const SidebarTrigger = React.forwardRef<
   React.ElementRef<typeof Button>,
   React.ComponentProps<typeof Button>
 >(({ className, onClick, ...props }, ref) => {
-  const { toggleSidebar } = useSidebar()
+  const { toggleSidebar, state } = useSidebar()
 
   return (
     <Button
@@ -329,14 +355,14 @@ const SidebarTrigger = React.forwardRef<
       data-sidebar='trigger'
       variant='ghost'
       size='icon'
-      className={cn('h-7 w-7', className)}
+      className={cn('h-7 w-7 p-2', className)}
       onClick={(event) => {
         onClick?.(event)
         toggleSidebar()
       }}
       {...props}
     >
-      <PanelLeft />
+      {state === 'expanded' ? <ArrowLeftToLine /> : <PanelLeft />}
       <span className='sr-only'>Toggle Sidebar</span>
     </Button>
   )

@@ -1,21 +1,45 @@
-'use client';
+'use client'
 
-import * as React from 'react';
-import { BaseColor, baseColors, baseColorsOKLCH } from '@/registry/registry-base-colors';
-import template from 'lodash/template';
-import { CheckIcon, ClipboardIcon } from 'lucide-react';
-import { cn } from '@/lib/utils';
-import { useThemeConfig } from '@/context/active-theme';
-import { Button } from '@/components/ui/button';
-import { copyToClipboardWithMeta } from '@/components/ui/copy-button';
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import { Drawer, DrawerContent, DrawerDescription, DrawerHeader, DrawerTitle, DrawerTrigger } from '@/components/ui/drawer';
-import { Icons } from '@/components/ui/icons';
-import { Label } from '@/components/ui/label';
-import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
-import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import * as React from 'react'
+import {
+  BaseColor,
+  baseColors,
+  baseColorsOKLCH,
+} from '@/registry/registry-base-colors'
+import template from 'lodash/template'
+import { CheckIcon, ClipboardIcon } from 'lucide-react'
+import { cn } from '@/lib/utils'
+import { useThemeConfig } from '@/context/active-theme'
+import { Button } from '@/components/ui/button'
+import { copyToClipboardWithMeta } from '@/components/ui/copy-button'
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog'
+import {
+  Drawer,
+  DrawerContent,
+  DrawerDescription,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from '@/components/ui/drawer'
+import { Icons } from '@/components/ui/icons'
+import { Label } from '@/components/ui/label'
+import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area'
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-
 
 interface BaseColorOKLCH {
   light: Record<string, string>

@@ -1,7 +1,6 @@
-import Link from 'next/link';
+import Link from 'next/link'
 import { CardsDemo } from '@/components/ui/cards'
 import { ThemeCustomizer } from '@/components/themes/theme-customizer'
-
 
 export const dynamic = 'force-static'
 export const revalidate = false

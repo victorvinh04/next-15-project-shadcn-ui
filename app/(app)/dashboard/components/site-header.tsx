@@ -1,7 +1,5 @@
 import React from 'react'
 import { cn } from '@/lib/utils'
-import { Separator } from '@/components/ui/separator'
-import { SidebarTrigger } from '@/components/ui/sidebar'
 
 interface HeaderProps extends React.HTMLAttributes<HTMLDivElement> {
   className?: string
@@ -25,7 +23,7 @@ const SiteHeader = ({ className, children, fixed, ...props }: HeaderProps) => {
   return (
     <header
       className={cn(
-        'flex h-16 bg-background shrink-0 items-center gap-3 sm:gap-4 border-b transition-[width,height] ease-linear',
+        'bg-background flex h-16 shrink-0 items-center gap-3 border-b transition-[width,height] ease-linear sm:gap-4',
         'group-has-data-[collapsible=icon]/sidebar-wrapper:h-12',
         fixed && 'header-fixed peer/header fixed z-50 w-[inherit] rounded-md',
         offset > 10 && fixed ? 'shadow-sm' : 'shadow-none',

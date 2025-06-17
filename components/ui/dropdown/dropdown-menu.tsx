@@ -76,8 +76,9 @@ const DropdownMenuItem = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.Item>,
   React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Item> & {
     inset?: boolean
+    variant?: 'default' | 'destructive'
   }
->(({ className, inset, ...props }, ref) => (
+>(({ className, inset, variant = 'default', ...props }, ref) => (
   <DropdownMenuPrimitive.Item
     ref={ref}
     className={cn(
@@ -85,6 +86,9 @@ const DropdownMenuItem = React.forwardRef<
       inset && 'pl-8',
       className
     )}
+    data-variant={variant}
+    data-inset={inset}
+    data-slot='dropdown-menu-item'
     {...props}
   />
 ))
@@ -105,7 +109,7 @@ const DropdownMenuCheckboxItem = React.forwardRef<
   >
     <span className='absolute left-2 flex h-3.5 w-3.5 items-center justify-center'>
       <DropdownMenuPrimitive.ItemIndicator>
-        <Check className='h-4 w-4' />
+        <Check className='size-4' />
       </DropdownMenuPrimitive.ItemIndicator>
     </span>
     {children}

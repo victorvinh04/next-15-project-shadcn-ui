@@ -3,7 +3,6 @@
 import Cookies from 'js-cookie'
 import { AppSidebar } from '@/app/(app)/dashboard/components/app-sidebar'
 import SiteHeader from '@/app/(app)/dashboard/components/site-header'
-import Link from 'next/link'
 import { SearchProvider } from '@/context/search-context'
 import {
   Breadcrumb,

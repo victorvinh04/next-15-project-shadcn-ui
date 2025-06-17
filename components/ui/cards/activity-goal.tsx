@@ -113,7 +113,11 @@ export function CardsActivityGoal() {
             className='aspect-auto h-full w-full'
           >
             <BarChart data={data}>
-              <Bar dataKey='goal' radius={[4, 4, 0, 0]} fill='var(--color-goal)' />
+              <Bar
+                dataKey='goal'
+                radius={[4, 4, 0, 0]}
+                fill='var(--color-goal)'
+              />
             </BarChart>
           </ChartContainer>
         </div>

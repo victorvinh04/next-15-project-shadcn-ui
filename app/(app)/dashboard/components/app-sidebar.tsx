@@ -1,6 +1,10 @@
 'use client'
 
 import * as React from 'react'
+import { NavDocuments } from '@/app/(app)/dashboard/components/nav/nav-documents'
+import { NavGroup } from '@/app/(app)/dashboard/components/nav/nav-group'
+import { NavSecondary } from '@/app/(app)/dashboard/components/nav/nav-secondary'
+import { NavUser } from '@/app/(app)/dashboard/components/nav/nav-user'
 import {
   BarChartIcon,
   CameraIcon,
@@ -15,10 +19,6 @@ import {
   UsersIcon,
 } from 'lucide-react'
 import { ClipboardIcon, FileIcon } from 'lucide-react'
-import { NavDocuments } from '@/app/(app)/dashboard/components/nav/nav-documents'
-import { NavGroup } from '@/app/(app)/dashboard/components/nav/nav-group'
-import { NavSecondary } from '@/app/(app)/dashboard/components/nav/nav-secondary'
-import { NavUser } from '@/app/(app)/dashboard/components/nav/nav-user'
 import {
   Sidebar,
   SidebarContent,
@@ -136,7 +136,12 @@ const data = {
 }
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
-    <Sidebar collapsible='icon' className='h-auto border-r' variant='floating' {...props}>
+    <Sidebar
+      collapsible='icon'
+      className='h-auto border-r'
+      variant='floating'
+      {...props}
+    >
       <SidebarHeader className='border-b'>
         <TeamSwitcher teams={sidebarData.teams} />
       </SidebarHeader>

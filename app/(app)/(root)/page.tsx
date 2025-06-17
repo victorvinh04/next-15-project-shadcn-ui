@@ -12,6 +12,7 @@ import {
 } from '@/components/layout/page-header'
 import { ThemeSelector } from '@/components/themes/theme-selector'
 import { ThemeSwitch } from '@/components/themes/theme-switch'
+import { SiteFooter } from '../dashboard/components/site-footer'
 
 const title = 'Build your Component Library'
 const description =
@@ -49,15 +50,8 @@ export default function IndexPage() {
     <div className='bg-background relative z-10 flex min-h-svh flex-col'>
       <header className='bg-background sticky top-0 z-50 w-full'>
         <div className='container-wrapper 3xl:fixed:px-0 px-6'>
-          <div className='3xl:fixed:container flex h-(--header-height) items-center gap-2 **:data-[slot=separator]:!h-4'>
+          <div className='3xl:fixed:container flex h-(--header-height) items-center justify-between gap-2 **:data-[slot=separator]:!h-4'>
             <Link href='/' className='flex items-center gap-2'>
-              <Image
-                src='/assets/images/logo/logo.svg'
-                alt='Logo'
-                width={32}
-                height={32}
-                className='h-8 w-8'
-              />
               <span className='text-lg font-semibold'>shadcn/ui</span>
             </Link>
             <nav className='flex items-center gap-4'>
@@ -107,6 +101,7 @@ export default function IndexPage() {
           </div>
         </div>
       </main>
+      <SiteFooter />
     </div>
   )
 }

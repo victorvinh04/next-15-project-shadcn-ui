@@ -8,7 +8,6 @@ import {
   NavLink,
   type NavGroup,
 } from '@/types/data-sidebar'
-import { MoreHorizontalIcon } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/utils'
@@ -39,7 +38,7 @@ import {
 } from '@/components/ui/sidebar'
 
 export function NavGroup({ title, items }: NavGroup) {
-  const { state, isMobile } = useSidebar()
+  const { state } = useSidebar()
   return (
     <SidebarGroup>
       <SidebarGroupLabel>{title}</SidebarGroupLabel>
@@ -183,7 +182,6 @@ const SidebarMenuCollapsedDropdown = ({
   item: NavCollapsible
   href: string
 }) => {
-  const pathname = usePathname()
   return (
     <SidebarMenuItem>
       <DropdownMenu>
@@ -241,7 +239,6 @@ const SidebarMenuCollapsedDropdown = ({
 }
 
 function checkIsActive(href: string, item: NavItem, mainNav = false): boolean {
-  const pathname = usePathname()
   return !!(
     href === item?.href || // /endpint?search=param
     href?.split('?')[0] === item?.href || // endpoint

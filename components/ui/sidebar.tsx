@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import * as React from 'react'
 import { Slot } from '@radix-ui/react-slot'
 import { VisuallyHidden } from '@radix-ui/react-visually-hidden'
@@ -179,47 +180,47 @@ const Sidebar = React.forwardRef<
     ref
   ) => {
     const { isMobile, state, openMobile, setOpenMobile } = useSidebar()
-    
+
     // Use null as initial state to handle SSR
     const [windowWidth, setWindowWidth] = React.useState<number | null>(null)
-    
+
     // Initialize window width on client-side only
     React.useEffect(() => {
       setWindowWidth(window.innerWidth)
-      
+
       // Debounced resize handler to improve performance
       const handleResize = debounce(() => {
         setWindowWidth(window.innerWidth)
       }, 100)
-      
+
       window.addEventListener('resize', handleResize)
       return () => {
         window.removeEventListener('resize', handleResize)
         handleResize.cancel()
       }
     }, [])
-    
+
     // Simple debounce implementation
     function debounce<T extends (...args: any[]) => any>(
       func: T,
       wait: number
     ) {
       let timeout: ReturnType<typeof setTimeout> | null = null
-      
+
       const debounced = (...args: Parameters<T>) => {
         if (timeout !== null) {
           clearTimeout(timeout)
         }
         timeout = setTimeout(() => func(...args), wait)
       }
-      
+
       debounced.cancel = () => {
         if (timeout !== null) {
           clearTimeout(timeout)
           timeout = null
         }
       }
-      
+
       return debounced
     }
 

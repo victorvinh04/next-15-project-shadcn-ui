@@ -1,10 +1,20 @@
-"use client";
+'use client'
 
-import React from 'react';
-import { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './card';
-import { CartesianGrid, Line, LineChart, XAxis } from 'recharts';
-
+import React from 'react'
+import { CartesianGrid, Line, LineChart, XAxis } from 'recharts'
+import {
+  ChartConfig,
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
+} from '@/components/ui/chart'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from './card'
 
 const data = [
   {

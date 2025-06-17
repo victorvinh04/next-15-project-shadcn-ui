@@ -1,8 +1,8 @@
 'use client'
 
 import * as React from 'react'
-import { type Icon } from '@tabler/icons-react'
 import { type LucideIcon } from 'lucide-react'
+import { usePathname } from 'next/navigation'
 import {
   SidebarGroup,
   SidebarGroupContent,
@@ -10,7 +10,6 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from '@/components/ui/sidebar'
-import { usePathname } from 'next/navigation'
 
 type itemsProps = {
   title: string
@@ -23,7 +22,7 @@ export function NavSecondary({
 }: {
   items: itemsProps[]
 } & React.ComponentPropsWithoutRef<typeof SidebarGroup>) {
-  const pathname = usePathname();
+  const pathname = usePathname()
   return (
     <SidebarGroup {...props}>
       <SidebarGroupContent>

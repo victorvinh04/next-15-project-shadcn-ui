@@ -16,5 +16,19 @@
       "<node_internals>/**",
       "**/node_modules/**",
       "**/fixtures/**"
-    ]
+    ],
+    "cSpell.words": [
+      "cmdk",
+      "embla",
+      "navbutton",
+      "opengraph",
+      "shadcn",
+      "sonner",
+      "tabler",
+      "trivago",
+      "turbopack",
+      "vaul",
+      "victorvinh"
+    ],
+    "editor.formatOnSave": true
   }

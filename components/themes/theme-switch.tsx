@@ -1,17 +1,16 @@
-'use client';
+'use client'
 
-import { useEffect } from 'react';
-import { CheckIcon, Moon, Sun } from 'lucide-react';
-import { useTheme } from 'next-themes';
-import { cn } from '@/lib/utils';
-import { Button } from '@/components/ui/button';
+import { useEffect } from 'react'
+import { CheckIcon, Moon, Sun } from 'lucide-react'
+import { useTheme } from 'next-themes'
+import { cn } from '@/lib/utils'
+import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown/dropdown-menu'
-
 
 export function ThemeSwitch() {
   const { theme, setTheme } = useTheme()

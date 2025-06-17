@@ -1,19 +1,30 @@
-"use client";
+'use client'
 
-import React from 'react';
-import { IconArrowRightDashed, IconDeviceLaptop, IconMoon, IconSun } from '@tabler/icons-react';
-import { sidebarData } from '@/app/(app)/dashboard/components/data/sidebar-data';
-import { Router } from 'lucide-react';
-import { useTheme } from 'next-themes';
-import { useRouter } from 'next/navigation';
-import { useSearch } from '@/context/search-context';
-import { CommandDialog, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, CommandSeparator } from '@/components/ui/command';
-import { ScrollArea } from '../scroll-area';
-
+import React from 'react'
+import {
+  IconArrowRightDashed,
+  IconDeviceLaptop,
+  IconMoon,
+  IconSun,
+} from '@tabler/icons-react'
+import { sidebarData } from '@/app/(app)/dashboard/components/data/sidebar-data'
+import { useTheme } from 'next-themes'
+import { useRouter } from 'next/navigation'
+import { useSearch } from '@/context/search-context'
+import {
+  CommandDialog,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+  CommandSeparator,
+} from '@/components/ui/command'
+import { ScrollArea } from '../scroll-area'
 
 export function CommandMenu() {
-    const router = useRouter()
-    const { setTheme } = useTheme()
+  const router = useRouter()
+  const { setTheme } = useTheme()
   const { open, setOpen } = useSearch()
 
   const runCommand = React.useCallback(
@@ -39,7 +50,9 @@ export function CommandMenu() {
                       key={`${navItem.href}-${i}`}
                       value={navItem.title}
                       onSelect={() => {
-                        runCommand(() => router.push(`${navItem.href}`, {scroll: false}))
+                        runCommand(() =>
+                          router.push(`${navItem.href}`, { scroll: false })
+                        )
                       }}
                     >
                       <div className='mr-2 flex h-4 w-4 items-center justify-center'>
@@ -54,9 +67,9 @@ export function CommandMenu() {
                     key={`${subItem.href}-${i}`}
                     value={subItem.title}
                     onSelect={() => {
-                        runCommand(() =>
-                          router.push(`${subItem.href}`, { scroll: false })
-                        )
+                      runCommand(() =>
+                        router.push(`${subItem.href}`, { scroll: false })
+                      )
                     }}
                   >
                     <div className='mr-2 flex h-4 w-4 items-center justify-center'>

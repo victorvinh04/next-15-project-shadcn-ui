@@ -3,9 +3,9 @@ import { z } from 'zod'
 import { promises as fs } from 'fs'
 import { Metadata } from 'next'
 import Image from 'next/image'
-import { columns } from './components/columns'
-import { DataTable } from './components/data-table'
-import { UserNav } from './components/user-nav'
+import { columnsTableTask } from './components/columns-task'
+import { DataTableTask } from './components/data-table-task'
+// import { UserNav } from './components/user-nav'
 import { taskSchema } from './data/schema'
 
 export const metadata: Metadata = {
@@ -55,11 +55,9 @@ export default async function TaskPage() {
               Here&apos;s a list of your tasks for this month.
             </p>
           </div>
-          <div className='flex items-center gap-2'>
-            <UserNav />
-          </div>
+          <div className='flex items-center gap-2'></div>
         </div>
-        <DataTable data={tasks} columns={columns} />
+        <DataTableTask data={tasks} columns={columnsTableTask} />
       </div>
     </>
   )

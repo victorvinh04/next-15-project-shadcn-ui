@@ -10,7 +10,7 @@ const examples = [
     name: 'Dashboard',
     href: '/dashboard',
     code: 'https://github.com/shadcn/ui/tree/main/apps/v4/app/(app)/examples/dashboard',
-    hidden: false,
+    hidden: true,
   },
   {
     name: 'Tasks',

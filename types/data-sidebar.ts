@@ -53,6 +53,7 @@ type otherNavItem = {
 
 interface NavGroup {
   title: string
+  href?: never
   items: NavItem[]
 }
 

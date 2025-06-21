@@ -1,3 +1,4 @@
+import React from 'react'
 import '@/styles/globals.css'
 import type { Metadata } from 'next'
 // @/lib
@@ -7,6 +8,7 @@ import { cn } from '@/lib/utils'
 // @/context
 import { ActiveThemeProvider } from '@/context/active-theme'
 import { QueryClientProviders } from '@/context/query-client-providers'
+// @/components
 import { ThemeProvider } from '@/context/theme-provider'
 import { LayoutProvider } from '@/hooks/use-layout'
 import { Toaster } from '@/components/ui/sonner'

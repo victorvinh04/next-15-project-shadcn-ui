@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { siteConfig } from '@/lib/config'
 
 export function SiteFooter() {
@@ -7,14 +8,14 @@ export function SiteFooter() {
         <div className='flex h-(--footer-height) items-center justify-between'>
           <div className='text-muted-foreground w-full text-center text-xs leading-loose sm:text-sm'>
             Built by{' '}
-            <a
+            <Link
               href={siteConfig.links.twitter}
               target='_blank'
               rel='noreferrer noopener'
               className='font-medium underline underline-offset-4'
             >
               shadcn
-            </a>{' '}
+            </Link>{' '}
             at{' '}
             <a
               href={siteConfig.links.github}

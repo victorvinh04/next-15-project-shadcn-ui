@@ -1,7 +1,9 @@
 // @ts-check
+// import { createMDX } from 'fumadocs-mdx/next'
 import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
+  devIndicators: false,
   outputFileTracingIncludes: {
     '/*': ['./registry/**/*'],
   },
@@ -29,5 +31,7 @@ const nextConfig: NextConfig = {
     ],
   },
 }
+
+// const withMDX = createMDX({})
 
 export default nextConfig

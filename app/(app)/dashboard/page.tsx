@@ -11,7 +11,7 @@ import {
   BreadcrumbList,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb'
-import { ChartAreaInteractive } from '@/components/ui/chart/chart-area-interactive'
+import { ChartAreaInteractive } from '@/components/ui/charts/area/chart-area-interactive'
 import { ProfileDropdown } from '@/components/ui/profile-dropdown'
 import { SearchComponent } from '@/components/ui/search/search'
 import SectionCards from '@/components/ui/section/section-card'
@@ -22,6 +22,7 @@ import {
   SidebarTrigger,
 } from '@/components/ui/sidebar'
 import { DataTable } from '@/components/ui/table/data-table'
+import AppHeader from '@/components/layout/app-header'
 import { Main } from '@/components/layout/main'
 import { ThemeSwitch } from '@/components/themes/theme-switch'
 import dataTable from './data.json'
@@ -41,7 +42,7 @@ export default function Page() {
       >
         <AppSidebar />
         <SidebarInset className='*:dark:bg-primary-foreground'>
-          <SiteHeader>
+          <AppHeader>
             <SidebarTrigger
               variant='outline'
               className='scale-125 sm:scale-100'
@@ -52,7 +53,7 @@ export default function Page() {
               <ThemeSwitch />
               <ProfileDropdown />
             </div>
-          </SiteHeader>
+          </AppHeader>
           <div className='flex flex-col items-center gap-2 lg:px-6'>
             <Breadcrumb>
               <BreadcrumbList>

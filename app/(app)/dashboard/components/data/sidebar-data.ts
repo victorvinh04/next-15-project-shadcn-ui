@@ -46,6 +46,8 @@ import {
   IconPlaystationTriangle,
   IconAuth2fa,
   IconFileTextSpark,
+  IconChartArea,
+  IconColorPicker,
 } from '@tabler/icons-react'
 import { SidebarData } from '@/types/data-sidebar'
 
@@ -142,29 +144,34 @@ export const sidebarData: SidebarData = {
       items: [
         {
           title: 'Dashboard',
-          href: '/',
+          href: '/dashboard',
           icon: IconLayoutDashboard,
         },
         {
-          title: 'Tasks',
-          href: '/tasks',
-          icon: IconChecklist,
-        },
-        {
-          title: 'Apps',
-          href: '/apps',
-          icon: IconPackages,
-        },
-        {
-          title: 'Chats',
-          href: '/chats',
+          title: 'Examples',
           badge: '3',
-          icon: IconMessages,
-        },
-        {
-          title: 'Users',
-          href: '/users',
-          icon: IconUsers,
+          items: [
+            {
+              title: 'Theme',
+              href: '/examples/themes',
+              icon: IconAdjustments,
+            },
+            {
+              title: 'Playground',
+              href: '/examples/playground',
+              icon: IconPlaystationTriangle,
+            },
+            {
+              title: 'Authentication',
+              href: '/examples/authentication',
+              icon: IconAuth2fa,
+            },
+            {
+              title: 'Task',
+              href: '/examples/task',
+              icon: IconFileTextSpark,
+            },
+          ],
         },
       ],
     },
@@ -355,31 +362,6 @@ export const sidebarData: SidebarData = {
               icon: IconBrowserCheck,
             },
           ],
-        },
-      ],
-    },
-    {
-      title: 'Examples',
-      items: [
-        {
-          title: 'Theme',
-          href: '/themes',
-          icon: IconAdjustments,
-        },
-        {
-          title: 'Playground',
-          href: 'examples/playground',
-          icon: IconPlaystationTriangle,
-        },
-        {
-          title: 'Authentication',
-          href: 'examples/authentication',
-          icon: IconAuth2fa,
-        },
-        {
-          title: 'Task',
-          href: 'examples/task',
-          icon: IconFileTextSpark,
         },
       ],
     },

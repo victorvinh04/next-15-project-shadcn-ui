@@ -98,6 +98,12 @@
   text-wrap: balance;
 }
 
+@utility btn {
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: ButtonFace;
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -382,5 +388,25 @@ body {
   }
   body {
     @apply min-h-svh w-full bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .section-soft {
+    --tw-gradient-position: to bottom in oklab;
+    background-image: linear-gradient(var(--tw-gradient-stops));
+    --tw-gradient-from: var(--background);
+    --tw-gradient-stops: var(--tw-gradient-via-stops,var(--tw-gradient-position),var(--tw-gradient-from)var(--tw-gradient-from-position),var(--tw-gradient-to)var(--tw-gradient-to-position));
+    --tw-gradient-to: color-mix(in oklab,var(--surface)40%,transparent)
+  }
+
+  .section-soft:is(.dark *) {
+      background-color: var(--background)
+  }
+
+  @media (width>=1600px) {
+      .section-soft:is(.layout-fixed *) {
+          background-image:none
+      }
   }
 }

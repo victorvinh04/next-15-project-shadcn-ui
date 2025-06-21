@@ -4,7 +4,6 @@ import Link from 'next/link'
 import { Announcement } from '@/components/ui/announcement'
 import { Button } from '@/components/ui/button'
 import { ExamplesNav } from '@/components/ui/examples/examples-nav'
-import AppHeader from '@/components/layout/app-header'
 import {
   PageActions,
   PageHeader,
@@ -13,7 +12,8 @@ import {
 } from '@/components/layout/page-header'
 import StarOnGithub from '@/components/mvpblocks/star-on-github'
 import { ThemeSelector } from '@/components/themes/theme-selector'
-import { ThemeSwitch } from '@/components/themes/theme-switch'
+import { SiteFooter } from '../dashboard/components/site-footer'
+import SiteHeader from '../dashboard/components/site-header'
 
 export const dynamic = 'force-static'
 export const revalidate = false
@@ -52,18 +52,17 @@ export default function ExamplesLayout({
 }) {
   return (
     <div className='bg-background relative z-10 flex min-h-svh flex-col'>
-      <AppHeader>
-        <Link href='/' className='flex items-center gap-2'>
+      <SiteHeader>
+        {/* <Link href='/' className='flex items-center gap-2'>
           <span className='text-xl font-semibold'>Themes</span>
         </Link>
-        <div className='flex-1' />
+        <div className='flex-1' /> */}
         <nav className='flex items-center gap-4'>
           <Link href='https://github.com/victorvinh04' className='text-sm'>
             <StarOnGithub />
           </Link>
-          <ThemeSwitch />
         </nav>
-      </AppHeader>
+      </SiteHeader>
       <main className='flex flex-1 flex-col items-center p-4'>
         <div className='flex flex-1 flex-col'>
           <PageHeader>
@@ -88,14 +87,15 @@ export default function ExamplesLayout({
           <ExamplesNav className='[&>a:first-child]:text-primary flex-1 overflow-hidden' />
           <ThemeSelector className='mr-4 hidden md:block' />
         </PageNav>
-        <div className="container-wrapper section-soft flex flex-1 flex-col pb-6">
-        <div className="theme-container container flex flex-1 scroll-mt-20 flex-col">
-          <div className="bg-background flex flex-col overflow-hidden rounded-lg border bg-clip-padding md:flex-1 xl:rounded-xl">
-            {children}
+        <div className='container-wrapper section-soft flex flex-1 flex-col pb-6'>
+          <div className='theme-container container flex flex-1 scroll-mt-20 flex-col'>
+            <div className='bg-background flex flex-col overflow-hidden rounded-lg border bg-clip-padding md:flex-1 xl:rounded-xl'>
+              {children}
+            </div>
           </div>
         </div>
-      </div>
       </main>
+      <SiteFooter />
     </div>
   )
 }

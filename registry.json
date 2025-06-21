@@ -1,0 +1,22 @@
+{
+    "name": "shadcn/ui",
+    "homepage": "https://ui.shadcn.com",
+    "items": [
+      {
+        "name": "index",
+        "type": "registry:style",
+        "dependencies": [
+          "class-variance-authority",
+          "lucide-react"
+        ],
+        "devDependencies": [
+          "tw-animate-css"
+        ],
+        "registryDependencies": [
+          "utils"
+        ],
+        "files": [],
+        "cssVars": {}
+      }
+    ]
+  }

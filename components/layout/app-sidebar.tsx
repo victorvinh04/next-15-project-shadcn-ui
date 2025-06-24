@@ -1,10 +1,10 @@
 'use client'
 
 import * as React from 'react'
-import { NavDocuments } from '@/app/(app)/dashboard/components/nav/nav-documents'
-import { NavGroup } from '@/app/(app)/dashboard/components/nav/nav-group'
-import { NavSecondary } from '@/app/(app)/dashboard/components/nav/nav-secondary'
-import { NavUser } from '@/app/(app)/dashboard/components/nav/nav-user'
+import { NavDocuments } from '@/components/layout/nav/nav-documents'
+import { NavGroup } from '@/components/layout/nav/nav-group'
+import { NavSecondary } from '@/components/layout/nav/nav-secondary'
+import { NavUser } from '@/components/layout/nav/nav-user'
 import {
   BarChartIcon,
   CameraIcon,
@@ -25,7 +25,7 @@ import {
   SidebarFooter,
   SidebarHeader,
 } from '@/components/ui/sidebar'
-import { sidebarData } from './data/sidebar-data'
+import { sidebarData } from '../../app/(app)/dashboard/components/data/sidebar-data'
 import { TeamSwitcher } from './team-switcher'
 
 const data = {

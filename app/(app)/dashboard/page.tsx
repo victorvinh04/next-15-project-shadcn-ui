@@ -1,8 +1,6 @@
 'use client'
 
 import Cookies from 'js-cookie'
-import { AppSidebar } from '@/app/(app)/dashboard/components/app-sidebar'
-import SiteHeader from '@/app/(app)/dashboard/components/site-header'
 import { SearchProvider } from '@/context/search-context'
 import {
   Breadcrumb,
@@ -23,8 +21,11 @@ import {
 } from '@/components/ui/sidebar'
 import { DataTable } from '@/components/ui/table/data-table'
 import AppHeader from '@/components/layout/app-header'
+import { AppSidebar } from '@/components/layout/app-sidebar'
 import { Main } from '@/components/layout/main'
+import SiteHeader from '@/components/layout/site-header'
 import { ThemeSwitch } from '@/components/themes/theme-switch'
+import { ChartAreaDefault } from '../charts/charts'
 import dataTable from './data.json'
 
 export default function Page() {
@@ -86,6 +87,9 @@ export default function Page() {
                   <DataTable data={dataTable} />
                   <div className='px-4 lg:px-6'>
                     <ChartAreaInteractive />
+                  </div>
+                  <div className='px-4 lg:px-6'>
+                    <ChartAreaDefault />
                   </div>
                 </div>
               </div>

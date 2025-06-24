@@ -31,6 +31,14 @@ export async function generateStaticParams() {
   }))
 }
 
+export function Loading() {
+  return (
+    <p>
+      <i>Loading...</i>
+    </p>
+  )
+}
+
 export default async function ChartPage({ params }: ChartPageProps) {
   const { type } = await params
 
@@ -49,6 +57,7 @@ export default async function ChartPage({ params }: ChartPageProps) {
       <div className='grid flex-1 scroll-mt-20 items-stretch gap-10 md:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:gap-10'>
         {Array.from({ length: 12 }).map((_, index) => {
           const chart = chartList[index]
+          console.log('ChartPage', chart)
           return chart ? (
             <ChartDisplay
               key={chart.id}

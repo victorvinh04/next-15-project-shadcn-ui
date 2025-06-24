@@ -102,6 +102,7 @@ export default function RootLayout({
             <LayoutProvider>
               <ActiveThemeProvider>
                 {children}
+                {/* Sonner Toast Notifications */}
                 <Toaster position='top-center' />
               </ActiveThemeProvider>
             </LayoutProvider>

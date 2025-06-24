@@ -12,8 +12,8 @@ import {
 } from '@/components/layout/page-header'
 import StarOnGithub from '@/components/mvpblocks/star-on-github'
 import { ThemeSelector } from '@/components/themes/theme-selector'
-import { SiteFooter } from '../dashboard/components/site-footer'
-import SiteHeader from '../dashboard/components/site-header'
+import { SiteFooter } from '../../../components/layout/site-footer'
+import SiteHeader from '../../../components/layout/site-header'
 
 export const dynamic = 'force-static'
 export const revalidate = false
@@ -52,17 +52,7 @@ export default function ExamplesLayout({
 }) {
   return (
     <div className='bg-background relative z-10 flex min-h-svh flex-col'>
-      <SiteHeader>
-        {/* <Link href='/' className='flex items-center gap-2'>
-          <span className='text-xl font-semibold'>Themes</span>
-        </Link>
-        <div className='flex-1' /> */}
-        <nav className='flex items-center gap-4'>
-          <Link href='https://github.com/victorvinh04' className='text-sm'>
-            <StarOnGithub />
-          </Link>
-        </nav>
-      </SiteHeader>
+      <SiteHeader></SiteHeader>
       <main className='flex flex-1 flex-col items-center p-4'>
         <div className='flex flex-1 flex-col'>
           <PageHeader>

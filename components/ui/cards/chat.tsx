@@ -1,65 +1,43 @@
-'use client'
+'use client';
 
-import * as React from 'react'
-import { ArrowUpIcon, CheckIcon, PlusIcon } from 'lucide-react'
-import { cn } from '@/lib/utils'
-import { AlertDialogFooter } from '@/components/ui/alert-dialog'
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
-import { Button } from '@/components/ui/button'
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-} from '@/components/ui/cards/card'
-import {
-  Command,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-} from '@/components/ui/command'
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-} from '@/components/ui/dialog'
-import { Input } from '@/components/ui/input'
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from '@/components/ui/tooltip'
+import * as React from 'react';
+import { ArrowUpIcon, CheckIcon, PlusIcon } from 'lucide-react';
+import { cn } from '@/lib/utils';
+import { AlertDialogFooter } from '@/components/ui/alert-dialog';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/cards/card';
+import { Command, CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList } from '@/components/ui/command';
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { Input } from '@/components/ui/input';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+
 
 const users = [
   {
     name: 'Olivia Martin',
     email: 'm@example.com',
-    avatar: '/avatars/01.png',
+    avatar: '/assets/images/avatars/01.png',
   },
   {
     name: 'Isabella Nguyen',
     email: 'isabella.nguyen@email.com',
-    avatar: '/avatars/03.png',
+    avatar: '/assets/images/avatars/03.png',
   },
   {
     name: 'Emma Wilson',
     email: 'emma@example.com',
-    avatar: '/avatars/05.png',
+    avatar: '/assets/images/avatars/05.png',
   },
   {
     name: 'Jackson Lee',
     email: 'lee@example.com',
-    avatar: '/avatars/02.png',
+    avatar: '/assets/images/avatars/02.png',
   },
   {
     name: 'William Kim',
     email: 'will@email.com',
-    avatar: '/avatars/04.png',
+    avatar: '/assets/images/avatars/04.png',
   },
 ] as const
 

@@ -1,20 +1,21 @@
-'use client'
+'use client';
 
-import React from 'react'
-import Link from 'next/link'
-import { getColors } from '@/lib/colors'
-import { siteConfig } from '@/lib/config'
+import React from 'react';
+import Link from 'next/link';
+import { getColors } from '@/lib/colors';
+import { siteConfig } from '@/lib/config';
 // import { source } from '@/lib/source'
-import { cn } from '@/lib/utils'
+import { cn } from '@/lib/utils';
 // import blocks from "@/registry/__blocks__.json"
-import { Button } from '@/components/ui/button'
-import { Icons } from '@/components/ui/icons'
-import { Separator } from '@/components/ui/separator'
-import { CommandMenuDashboard } from '@/components/layout/command-menu-dashboard'
-import { GitHubLink } from '@/components/layout/github-link'
-import { MainNav } from '@/components/layout/main-nav'
-import { MobileNav } from '@/components/layout/mobile-nav'
-import { ModeSwitcher } from '@/components/layout/mode-switcher'
+import { Button } from '@/components/ui/button';
+import { Icons } from '@/components/ui/icons';
+import { Separator } from '@/components/ui/separator';
+import { CommandMenuDashboard } from '@/components/layout/command-menu-dashboard';
+import { GitHubLink } from '@/components/layout/github-link';
+import { MainNav } from '@/components/layout/main-nav';
+import { MobileNav } from '@/components/layout/mobile-nav';
+import { ModeSwitcher } from '@/components/layout/mode-switcher';
+import StarOnGithub from '@/components/mvpblocks/star-on-github'
 import { SiteConfig } from './site-config'
 
 interface HeaderProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -71,7 +72,11 @@ const SiteHeader = ({ className, children, fixed, ...props }: HeaderProps) => {
               orientation='vertical'
               className='ml-2 hidden lg:block'
             />
-            <GitHubLink />
+                    <nav className='flex items-center gap-4'>
+                      <Link href='https://github.com/victorvinh04' className='text-sm'>
+                        <StarOnGithub />
+                      </Link>
+                    </nav>
             <Separator orientation='vertical' className='3xl:flex hidden' />
             <SiteConfig className='3xl:flex hidden' />
             <Separator orientation='vertical' />

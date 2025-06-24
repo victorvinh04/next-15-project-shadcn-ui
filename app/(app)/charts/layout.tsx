@@ -1,19 +1,18 @@
-import { Metadata } from 'next'
-import Link from 'next/link'
-import { Announcement } from '@/components/ui/announcement'
-import { Button } from '@/components/ui/button'
-import { ChartsNav } from '@/components/ui/charts/charts-nav'
+import { Metadata } from 'next';
+import Link from 'next/link';
+import { Announcement } from '@/components/ui/announcement';
+import { Button } from '@/components/ui/button';
+import { ChartsNav } from '@/components/ui/charts/charts-nav';
 import {
   PageActions,
   PageHeader,
   PageHeaderDescription,
   PageHeaderHeading,
 } from '@/components/layout/page-header'
-import StarOnGithub from '@/components/mvpblocks/star-on-github'
+import { SiteFooter } from '@/components/layout/site-footer'
+import SiteHeader from '@/components/layout/site-header'
 import { ThemeSelector } from '@/components/themes/theme-selector'
 import { PageNav } from '../dashboard/components/page-nav'
-import { SiteFooter } from '../dashboard/components/site-footer'
-import SiteHeader from '../dashboard/components/site-header'
 
 const title = 'Beautiful Charts & Graphs'
 const description =
@@ -50,13 +49,7 @@ export default function ChartsLayout({
 }) {
   return (
     <div className='bg-background relative z-10 flex min-h-svh flex-col'>
-      <SiteHeader>
-        <nav className='flex items-center gap-4'>
-          <Link href='https://github.com/victorvinh04' className='text-sm'>
-            <StarOnGithub />
-          </Link>
-        </nav>
-      </SiteHeader>
+      <SiteHeader />
       <main className='flex flex-1 flex-col items-center p-4'>
         <div className='flex flex-1 flex-col'>
           <PageHeader>

@@ -1,9 +1,10 @@
-'use client'
+'use client';
 
 import * as React from 'react'
 import { useTheme } from 'next-themes'
 import { useMetaColor } from '@/hooks/use-meta-color'
-import { Button } from '../ui/button'
+import { Button } from '@/components/ui/button'
+
 
 export function ModeSwitcher() {
   const { setTheme, resolvedTheme } = useTheme()

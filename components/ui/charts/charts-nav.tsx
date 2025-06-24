@@ -1,5 +1,6 @@
 'use client'
 
+import * as React from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/utils'
@@ -12,11 +13,11 @@ const links = [
   },
   {
     name: 'Bar Charts',
-    href: '/charts/bar/bar#charts',
+    href: '/charts/bar#charts',
   },
   {
     name: 'Line Charts',
-    href: '/charts/line/line#charts',
+    href: '/charts/line#charts',
   },
   {
     name: 'Pie Charts',
@@ -36,17 +37,19 @@ const links = [
   },
 ]
 
-export function ChartsNav({
-  className,
-  ...props
-}: React.ComponentProps<'div'>) {
+export const ChartsNav = React.forwardRef<
+  HTMLDivElement,
+  React.ComponentProps<'div'>
+>(({ className, ...props }, ref) => {
   const pathname = usePathname()
-  console.log(links)
-
   return (
     <div className='relative overflow-hidden'>
       <ScrollArea className='max-w-[600px] lg:max-w-none'>
-        <div className={cn('flex items-center', className)} {...props}>
+        <div
+          ref={ref}
+          className={cn('flex items-center', className)}
+          {...props}
+        >
           {links.map((link) => (
             <Link
               href={link.href}
@@ -64,4 +67,5 @@ export function ChartsNav({
       </ScrollArea>
     </div>
   )
-}
+})
+ChartsNav.displayName = 'ChartsNav'

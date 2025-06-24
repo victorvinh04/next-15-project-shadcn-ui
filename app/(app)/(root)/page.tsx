@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import { PageNav } from '@/app/(app)/dashboard/components/page-nav'
 import { Metadata } from 'next'
 import Image from 'next/image'
@@ -10,9 +11,8 @@ import {
   PageHeaderDescription,
   PageHeaderHeading,
 } from '@/components/layout/page-header'
-import { ThemeSelector } from '@/components/themes/theme-selector'
-import { ThemeSwitch } from '@/components/themes/theme-switch'
-import { SiteFooter } from '../dashboard/components/site-footer'
+import { SiteFooter } from '@/components/layout/site-footer'
+import SiteHeader from '@/components/layout/site-header'
 
 const title = 'Build your Component Library'
 const description =
@@ -45,63 +45,57 @@ export const metadata: Metadata = {
   },
 }
 
+function LoadingPage() {
+  return <h2>🌀 Loading...</h2>
+}
+
 export default function IndexPage() {
   return (
-    <div className='bg-background relative z-10 flex min-h-svh flex-col'>
-      <header className='bg-background sticky top-0 z-50 w-full'>
-        <div className='container-wrapper 3xl:fixed:px-0 px-6'>
-          <div className='3xl:fixed:container flex h-(--header-height) items-center justify-between gap-2 **:data-[slot=separator]:!h-4'>
-            <Link href='/' className='flex items-center gap-2'>
-              <span className='text-lg font-semibold'>shadcn/ui</span>
-            </Link>
-            <nav className='flex items-center gap-4'>
-              <ThemeSelector className='hidden md:flex' />
-              <ThemeSwitch />
-            </nav>
+    <Suspense fallback={<LoadingPage />}>
+      <div className='bg-background relative z-10 flex min-h-svh flex-col'>
+        <SiteHeader />
+        <main className='flex flex-1 flex-col items-center justify-center'>
+          <PageHeader>
+            <PageHeaderHeading>{title}</PageHeaderHeading>
+            <PageHeaderDescription>{description}</PageHeaderDescription>
+            <PageActions>
+              <Button asChild size='sm'>
+                <Link href='/docs/installation'>Get Started</Link>
+              </Button>
+              <Button asChild size='sm' variant='ghost'>
+                <Link href='/blocks'>Browse Blocks</Link>
+              </Button>
+            </PageActions>
+          </PageHeader>
+          <PageNav className='hidden md:flex'></PageNav>
+          <div className='container-wrapper section-soft flex-1 pb-6'>
+            <div className='container overflow-hidden'>
+              <section className='border-border/50 -mx-4 w-[160vw] overflow-hidden rounded-lg border md:hidden md:w-[150vw]'>
+                <Image
+                  src='/r/styles/new-york-v4/dashboard-01-light.png'
+                  width={1400}
+                  height={875}
+                  alt='Dashboard'
+                  className='block dark:hidden'
+                  priority
+                />
+                <Image
+                  src='/r/styles/new-york-v4/dashboard-01-dark.png'
+                  width={1400}
+                  height={875}
+                  alt='Dashboard'
+                  className='hidden dark:block'
+                  priority
+                />
+              </section>
+              <section className='theme-container hidden md:block'>
+                <CardsDemo />
+              </section>
+            </div>
           </div>
-        </div>
-      </header>
-      <main className='flex flex-1 flex-col items-center justify-center'>
-        <PageHeader>
-          <PageHeaderHeading>{title}</PageHeaderHeading>
-          <PageHeaderDescription>{description}</PageHeaderDescription>
-          <PageActions>
-            <Button asChild size='sm'>
-              <Link href='/docs/installation'>Get Started</Link>
-            </Button>
-            <Button asChild size='sm' variant='ghost'>
-              <Link href='/blocks'>Browse Blocks</Link>
-            </Button>
-          </PageActions>
-        </PageHeader>
-        <PageNav className='hidden md:flex'></PageNav>
-        <div className='container-wrapper section-soft flex-1 pb-6'>
-          <div className='container overflow-hidden'>
-            <section className='border-border/50 -mx-4 w-[160vw] overflow-hidden rounded-lg border md:hidden md:w-[150vw]'>
-              <Image
-                src='/r/styles/new-york-v4/dashboard-01-light.png'
-                width={1400}
-                height={875}
-                alt='Dashboard'
-                className='block dark:hidden'
-                priority
-              />
-              <Image
-                src='/r/styles/new-york-v4/dashboard-01-dark.png'
-                width={1400}
-                height={875}
-                alt='Dashboard'
-                className='hidden dark:block'
-                priority
-              />
-            </section>
-            <section className='theme-container hidden md:block'>
-              <CardsDemo />
-            </section>
-          </div>
-        </div>
-      </main>
-      <SiteFooter />
-    </div>
+        </main>
+        <SiteFooter />
+      </div>
+    </Suspense>
   )
 }

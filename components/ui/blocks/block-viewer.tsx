@@ -1,54 +1,23 @@
-'use client'
+'use client';
 
-import * as React from 'react'
-import { z } from 'zod'
-import { registryItemSchema } from '@/registry/schema'
-import {
-  Check,
-  ChevronRight,
-  Clipboard,
-  File,
-  Folder,
-  Fullscreen,
-  Monitor,
-  RotateCw,
-  Smartphone,
-  Tablet,
-  Terminal,
-} from 'lucide-react'
-import Image from 'next/image'
-import Link from 'next/link'
-import { ImperativePanelHandle } from 'react-resizable-panels'
-import { trackEvent } from '@/lib/events'
-import { createFileTreeForRegistryItemFiles, FileTree } from '@/lib/registry'
-import { cn } from '@/lib/utils'
-import { useCopyToClipboard } from '@/hooks/use-copy-to-clipboard'
-import { Button } from '@/components/ui/button'
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from '@/components/ui/collapsible'
-import {
-  ResizableHandle,
-  ResizablePanel,
-  ResizablePanelGroup,
-} from '@/components/ui/resizable'
-import { Separator } from '@/components/ui/separator'
-import {
-  Sidebar,
-  SidebarGroup,
-  SidebarGroupContent,
-  SidebarGroupLabel,
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
-  SidebarMenuSub,
-  SidebarProvider,
-} from '@/components/ui/sidebar'
-import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import * as React from 'react';
+import { z } from 'zod';
+import { registryItemSchema } from '@/registry/schema';
+import { Check, ChevronRight, Clipboard, File, Folder, Fullscreen, Monitor, RotateCw, Smartphone, Tablet, Terminal } from 'lucide-react';
+import Image from 'next/image';
+import Link from 'next/link';
+import { ImperativePanelHandle } from 'react-resizable-panels';
+import { trackEvent } from '@/lib/events';
+import { createFileTreeForRegistryItemFiles, FileTree } from '@/lib/registry';
+import { cn } from '@/lib/utils';
+import { useCopyToClipboard } from '@/hooks/use-copy-to-clipboard';
+import { Button } from '@/components/ui/button';
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
+import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from '@/components/ui/resizable';
+import { Separator } from '@/components/ui/separator';
+import { Sidebar, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarMenuSub, SidebarProvider } from '@/components/ui/sidebar';
+import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group'
-import { getIconForLanguageExtension } from '../icons'
 
 type BlockViewerContext = {
   item: z.infer<typeof registryItemSchema>
@@ -87,6 +56,7 @@ function BlockViewerProvider({
   const [activeFile, setActiveFile] = React.useState<
     BlockViewerContext['activeFile']
   >(highlightedFiles?.[0].target ?? null)
+  // (highlightedFiles?.[0].target ?? null)
   const resizeablePanelRef = React.useRef<ImperativePanelHandle | null>(null)
   const [iframeKey, setIframeKey] = React.useState<number>(0)
 

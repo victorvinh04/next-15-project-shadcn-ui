@@ -10,16 +10,12 @@ export const siteConfig = {
   },
   navItems: [
     {
-      href: '/docs/installation',
-      label: 'Docs',
+      href: '/dashboard',
+      label: 'Dashboard',
     },
     {
-      href: '/docs/components',
-      label: 'Components',
-    },
-    {
-      href: '/blocks',
-      label: 'Blocks',
+      href: '/examples/authorization',
+      label: 'Examples',
     },
     {
       href: '/charts/area',

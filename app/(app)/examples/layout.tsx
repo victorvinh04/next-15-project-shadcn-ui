@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { Announcement } from '@/components/ui/announcement'
 import { Button } from '@/components/ui/button'
 import { ExamplesNav } from '@/components/ui/examples/examples-nav'
+import AppHeader from '@/components/layout/app-header'
 import {
   PageActions,
   PageHeader,
@@ -52,7 +53,18 @@ export default function ExamplesLayout({
 }) {
   return (
     <div className='bg-background relative z-10 flex min-h-svh flex-col'>
-      <SiteHeader></SiteHeader>
+      <AppHeader>
+        <Link href='/' className='flex items-center gap-2'>
+          <span className='text-xl font-semibold'>Themes</span>
+        </Link>
+        <div className='flex-1' />
+        <nav className='flex items-center gap-4'>
+          <Link href='https://github.com/victorvinh04' className='text-sm'>
+            <StarOnGithub />
+          </Link>
+          <ThemeSwitch />
+        </nav>
+      </AppHeader>
       <main className='flex flex-1 flex-col items-center p-4'>
         <div className='flex flex-1 flex-col'>
           <PageHeader>
@@ -85,7 +97,6 @@ export default function ExamplesLayout({
           </div>
         </div>
       </main>
-      <SiteFooter />
     </div>
   )
 }

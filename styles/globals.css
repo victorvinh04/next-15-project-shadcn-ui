@@ -7,7 +7,7 @@
 
 @custom-variant fixed (&:is(.layout-fixed *));
 
-@theme {
+@theme inline {
   --color-background: hsl(var(--background));
   --color-foreground: hsl(var(--foreground));
 
@@ -172,8 +172,8 @@ body {
 
     --color-current: currentColor;
     --color-transparent: transparent;
-    --color-white: #ffffff;
-    --color-black: #101828;
+    --color-black: #000;
+    --color-white: #fff;
 
     --color-brand-25: #f2f7ff;
     --color-brand-50: #ecf3ff;
@@ -349,6 +349,10 @@ body {
     animation: slideUp 300ms ease-out;
   }
 
+  .container {
+    width: 100%
+  }
+
   @keyframes slideDown {
     from {
       height: 0;
@@ -374,6 +378,74 @@ body {
     textarea {
       font-size: 16px !important;
     }
+  }
+
+  @media (width>=1600px) {
+    .container {
+        max-width: 1600px
+    }
+  }
+
+  @media (width>=2000px) {
+      .container {
+          max-width: 2000px
+      }
+  }
+
+  @media (width>=40rem) {
+      .container {
+          max-width: 40rem
+      }
+  }
+
+  @media (width>=48rem) {
+      .container {
+          max-width: 48rem
+      }
+  }
+
+  @media (width>=64rem) {
+      .container {
+          max-width: 64rem
+      }
+  }
+
+  @media (width>=80rem) {
+      .container {
+          max-width: 80rem
+      }
+  }
+
+  @media (width>=96rem) {
+      .container {
+          max-width: 96rem
+      }
+  }
+
+  .m-0 {
+    margin: calc(var(--spacing)*0)
+}
+
+  .container-wrapper {
+      width: 100%;
+      padding-inline:calc(var(--spacing)*2);margin-inline: auto
+  }
+
+  .container {
+      max-width: 1400px;
+      padding-inline:calc(var(--spacing)*4);margin-inline: auto
+  }
+
+  @media (width>=1600px) {
+      .container {
+          max-width: var(--breakpoint-2xl)
+      }
+  }
+
+  @media (width>=64rem) {
+      .container {
+          padding-inline: calc(var(--spacing)*8)
+      }
   }
 }
 
